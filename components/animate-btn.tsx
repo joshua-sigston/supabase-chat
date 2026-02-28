@@ -48,7 +48,7 @@ const CreateRoomButton = () => {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
-        <Link href="/create-room">
+        <Link href="/rooms/new">
           {letters.map((char, index) => (
             <motion.span
               key={index}
