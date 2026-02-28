@@ -25,9 +25,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen w-full relative`}
       >
-        {children}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(125% 125% at 50% 10%, #000000 40%, #350136 100%)",
+          }}
+        />
+        <div className="relative z-10 h-full">{children}</div>
       </body>
     </html>
   );
