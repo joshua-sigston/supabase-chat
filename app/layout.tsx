@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/ui/header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +35,10 @@ export default function RootLayout({
               "radial-gradient(125% 125% at 50% 10%, #000000 40%, #350136 100%)",
           }}
         />
-        <div className="relative z-10 h-full">{children}</div>
+        <div className="relative z-10 h-full">
+          <Header />
+          {children}
+        </div>
       </body>
     </html>
   );
