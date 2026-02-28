@@ -3,7 +3,7 @@
 import { useCurrentUser } from "@/app/services/supabase/hooks/useCurrentUser";
 import Link from "next/link";
 import { Button } from "./button";
-import { LogoutButton } from "@/app/services/supabase/coomponents/logout-button";
+import { LogoutButton } from "@/app/services/supabase/components/logout-button";
 
 export default function Header() {
   const { user, isLoading } = useCurrentUser();

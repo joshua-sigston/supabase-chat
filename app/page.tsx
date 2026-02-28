@@ -1,5 +1,4 @@
 import CreateRoomButton from "@/components/animate-btn";
-import { Button } from "@/components/ui/button";
 import {
   Empty,
   EmptyContent,
