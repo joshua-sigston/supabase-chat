@@ -32,7 +32,8 @@ export async function createRoom(unsafeData: z.infer<typeof createRoomSchema>) {
   // 3. Create a Supabase admin client to bypass RLS since the user doesn't have
   // permission to insert a room before they are a member (depending on RLS setup)
   // or simply because we are doing a trusted server-side operation.
-  const supabase = await createAdminClient();
+  const supabase = createAdminClient();
+  // console.log("supabase", supabase);
 
   // 4. Insert the new chat room record
   const { data: room, error: roomError } = await supabase
@@ -40,12 +41,12 @@ export async function createRoom(unsafeData: z.infer<typeof createRoomSchema>) {
     .insert({
       name: data.name,
       is_public: data.isPublic,
-      user_id: user.id,
     })
     .select()
     .single();
 
   if (roomError || room == null) {
+    console.error("Supabase roomError:", roomError);
     return {
       error: true,
       message: "Failed to create room",
